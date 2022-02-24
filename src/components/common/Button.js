@@ -11,6 +11,7 @@ const StyledButton = styled.button`
   color: ${palette.purple[0]};
   outline: none;
   cursor: pointer;
+
   font-style: normal;
   font-weight: 900;
   line-height: 15px;
