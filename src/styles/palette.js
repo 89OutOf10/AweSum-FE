@@ -27,7 +27,7 @@ const palette = {
     '#364fc7',
   ],
   pink: ['#FBF7F7', '#FAF2F3', '#E7DFE0'],
-  purple: ['#3321C5', '#3F29ED'],
+  purple: ['#3321C5', '#3F29ED', '#6344BD'],
 };
 
 export default palette;

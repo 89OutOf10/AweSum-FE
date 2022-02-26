@@ -13,7 +13,6 @@ const FooterBlock = styled.div`
 const Wrapper = styled(Responsive)`
   height: 2rem;
   display: flex;
-
   justify-content: end;
 
   @media (max-width: 767px) {
@@ -25,15 +24,15 @@ const Text = styled.div`
   font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: 600;
-  font-size: 24px;
-  line-height: 28px;
-  color: ${palette.purple[0]};
-  display: flex;
-  align-items: center;
+  font-size: 15px;
   text-align: center;
   letter-spacing: 0.04em;
 
+  color: ${palette.purple[0]};
+  display: flex;
+  align-items: center;
   margin-top: 16px;
+  margin-right: 0px;
 `;
 
 const Footer = () => {
