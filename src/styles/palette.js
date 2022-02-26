@@ -1,6 +1,7 @@
 // https://yeun.github.io/open-color/
 
 const palette = {
+  white: ['#FFFFFF'],
   gray: [
     '#f8f9fa',
     '#f1f3f5',
@@ -26,7 +27,7 @@ const palette = {
     '#364fc7',
   ],
   pink: ['#FBF7F7', '#FAF2F3', '#E7DFE0'],
-  purple: ['#653BDC', '#3F29ED'],
+  purple: ['#3321C5', '#3F29ED', '#6344BD'],
 };
 
 export default palette;
