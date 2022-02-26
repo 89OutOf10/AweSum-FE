@@ -69,7 +69,7 @@ const Header = ({ onSelect }) => {
     <>
       <HeaderBlock>
         <Wrapper>
-          <Logo onClick={() => onSelect('ABOUT')}>
+          <Logo onClick={() => onSelect('HOME')}>
             <Link
               to="/"
               style={{ textDecoration: 'none', color: `${palette.purple[0]}` }}

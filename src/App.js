@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom';
 import Responsive from './components/common/Responsive';
 import styled from 'styled-components';
 import palette from './styles/palette';
-
+import ScrollToTop from './components/common/ScrollToTop';
 //pages
 import mainPage from './pages/mainPage';
 import aboutPage from './pages/aboutPage';
@@ -22,6 +22,7 @@ const App = () => {
     <>
       <Header menu={menu} onSelect={onSelect} />
       <Main>
+        <ScrollToTop />
         <Route component={mainPage} path="/" exact={true} />
         <Route component={aboutPage} path="/about" />
       </Main>
