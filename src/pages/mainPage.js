@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import Button from '../components/common/Button';
 import palette from '../styles/palette';
+import Input from '../components/main/Input';
 
 const Block1 = styled.div`
   background: ${palette.pink[2]};
@@ -18,7 +19,16 @@ const SubSection1 = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
+`;
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 10%;
 `;
 
 const SubSection2 = styled.div`
@@ -61,7 +71,7 @@ const Header = styled.div`
 const Board = styled.div`
   background: #ffffff;
   border-radius: 16px;
-  height: 80%;
+  height: 85%;
   width: 90%;
   display: flex;
   flex-direction: column;
@@ -97,6 +107,10 @@ const mainPage = () => {
           <Board>
             <Header style={{ marginLeft: '20px' }}>VIDEO</Header>
           </Board>
+          <Wrapper>
+            <Input placeholder={'Type in the URL'} />
+            <Button style={{ marginLeft: '10px' }}> ENTER </Button>
+          </Wrapper>
         </SubSection1>
         <SubSection2>
           <Board style={{ borderRadius: '28px', height: '90%' }}></Board>
