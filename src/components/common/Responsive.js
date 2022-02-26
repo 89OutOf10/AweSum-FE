@@ -8,7 +8,7 @@ const ResponsiveBlock = styled.div`
   margin: 0 auto; /*중앙 정렬*/
 
   @media (max-width: 1024px) {
-    width: 768px;
+    width: 100%;
   }
   @media (max-width: 768px) {
     width: 100%;

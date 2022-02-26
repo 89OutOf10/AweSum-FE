@@ -28,10 +28,6 @@ const Wrapper = styled(Responsive)`
   }
 `;
 
-const Spacer = styled.div`
-  height: 6.5rem;
-`;
-
 const Logo = styled.div`
   font-family: 'Roboto', sans-serif;
   font-style: normal;
@@ -48,7 +44,7 @@ const MenusBlock = styled.div`
 const Menu = styled.div`
   font-family: 'Roboto', sans-serif;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 550;
   font-size: 1.25rem;
   cursor: pointer;
 
@@ -61,6 +57,11 @@ const Menu = styled.div`
   & + & {
     margin-left: 2.625rem;
   }
+`;
+
+const Spacer = styled.div`
+  height: 6.5rem;
+  background: ${palette.pink[2]};
 `;
 
 const Header = ({ onSelect }) => {

@@ -16,7 +16,7 @@ const Wrapper = styled(Responsive)`
   justify-content: end;
 
   @media (max-width: 767px) {
-    padding: 1rem;
+    //padding: 1rem;
   }
 `;
 
