@@ -24,9 +24,9 @@ const Text = styled.div`
   font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: 600;
-  font-size: 15px;
+  font-size: 1.25rem;
   text-align: center;
-  letter-spacing: 0.04em;
+  // letter-spacing: 0.04em;
 
   color: ${palette.purple[0]};
   display: flex;
