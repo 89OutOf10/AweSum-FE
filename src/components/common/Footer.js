@@ -26,7 +26,7 @@ const Text = styled.div`
   font-weight: 600;
   font-size: 1.25rem;
   text-align: center;
-  letter-spacing: 0.04em;
+  // letter-spacing: 0.04em;
 
   color: ${palette.purple[0]};
   display: flex;

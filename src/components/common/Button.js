@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import palette from '../../styles/palette';
 
 const StyledButton = styled.button`
+  border: 2px solid ${palette.purple[0]};
   border-radius: 4px;
-  border-color: ${palette.purple[0]};
   height: 3rem;
   font-size: 1rem;
   padding: 0.25rem 1rem;
@@ -18,7 +18,7 @@ const StyledButton = styled.button`
   display: flex;
   align-items: center;
   text-align: center;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
 
   background: ${palette.white[0]};

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Button from '../components/common/Button';
 import palette from '../styles/palette';
 import Input from '../components/main/Input';
+import TimeFrame from '../components/main/TimeFrame';
 
 const Block1 = styled.div`
   background: ${palette.pink[2]};
@@ -113,7 +114,9 @@ const mainPage = () => {
           </Wrapper>
         </SubSection1>
         <SubSection2>
-          <Board style={{ borderRadius: '28px', height: '90%' }}></Board>
+          <Board style={{ borderRadius: '28px', height: '90%' }}>
+            <TimeFrame style={{ marginLeft: '20px', marginTop: '8%' }} />
+          </Board>
         </SubSection2>
       </Block1>
       <Block2>
