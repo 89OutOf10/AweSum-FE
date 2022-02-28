@@ -7,7 +7,7 @@ import TimeFrame from '../components/main/TimeFrame';
 
 const Block1 = styled.div`
   background: ${palette.pink[2]};
-  height: 48rem;
+  height: 50rem;
   display: flex;
   flex-direction: row;
   justify-content: center;
