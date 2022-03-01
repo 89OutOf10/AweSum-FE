@@ -4,6 +4,7 @@ import Button from '../components/common/Button';
 import palette from '../styles/palette';
 import Input from '../components/main/Input';
 import TimeFrame from '../components/main/TimeFrame';
+import Summary from '../components/main/Summary';
 
 const Block1 = styled.div`
   background: ${palette.pink[2]};
@@ -122,7 +123,9 @@ const mainPage = () => {
       <Block2>
         <SubSection3>
           <Header>SUMMARY</Header>
-          <Board style={{ height: '75%' }}></Board>
+          <Board style={{ height: '75%' }}>
+            <Summary />
+          </Board>
         </SubSection3>
       </Block2>
       <Block1>

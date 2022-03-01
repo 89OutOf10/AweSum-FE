@@ -29,14 +29,6 @@ const Wrapper = styled(Responsive)`
   }
 `;
 
-const Logo = styled.div`
-  font-family: 'Roboto', sans-serif;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 1.425rem;
-  margin-top: 10px;
-`;
-
 const LogoImg = styled.img`
   padding-top: 5px;
   height: 39px;
