@@ -32,14 +32,16 @@ const SubWrapper = styled.div`
 `;
 
 const Summary = ({ ...props }) => {
-  const [checkedMedium, setCheckedMedium] = useState(false);
+  const [checkedMedium, setCheckedMedium] = useState(true);
   const onClick = (e) => {
     setCheckedMedium(!checkedMedium);
+    setCheckedLong(!checkedLong);
   };
 
   const [checkedLong, setCheckedLong] = useState(false);
   const onClick2 = (e) => {
     setCheckedLong(!checkedLong);
+    setCheckedMedium(!checkedMedium);
   };
 
   return (
