@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import palette from '../../styles/palette';
 import Button from '../common/Button';
 import RadioButton from '../common/RadioButton';
 
@@ -17,8 +16,9 @@ const Wrapper = styled.div`
 const Text = styled.div`
   font-family: 'Roboto', sans-serif;
   font-style: normal;
-  font-size: 30px;
+  font-weight: bold;
   line-height: 25px;
+  font-size: 25px;
   text-align: center;
 `;
 
@@ -46,7 +46,7 @@ const Summary = ({ ...props }) => {
 
   return (
     <Wrapper>
-      <Text style={{ marginBottom: '80px', fontWeight: 'bolder' }}>
+      <Text style={{ marginBottom: '60px', fontWeight: 'bolder' }}>
         CHOOSE SUMMARY LENGTH
       </Text>
       <SubWrapper>

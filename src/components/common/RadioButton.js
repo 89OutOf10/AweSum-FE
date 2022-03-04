@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import radiobuttonTrue from '../../assets/main/button_checked.png';
 import radiobuttonFalse from '../../assets/main/button_unchecked.png';
 
