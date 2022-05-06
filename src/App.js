@@ -5,8 +5,8 @@ import styled from 'styled-components';
 import palette from './styles/palette';
 import ScrollToTop from './components/common/ScrollToTop';
 //pages
-import mainPage from './pages/mainPage';
-import aboutPage from './pages/aboutPage';
+import mainPage from './pages/MainPage';
+import aboutPage from './pages/AboutPage';
 import Header from './components/common/Header';
 import Footer from './components/common/Footer';
 

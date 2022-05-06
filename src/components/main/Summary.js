@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import Button from '../common/Button';
 import RadioButton from '../common/RadioButton';
+import SummaryModal from './SummaryModal';
 
 const Wrapper = styled.div`
   margin-top: 15%;
@@ -32,6 +33,7 @@ const SubWrapper = styled.div`
 `;
 
 const Summary = ({ ...props }) => {
+  // button 
   const [checkedMedium, setCheckedMedium] = useState(true);
   const onClick = (e) => {
     setCheckedMedium(!checkedMedium);
@@ -43,6 +45,19 @@ const Summary = ({ ...props }) => {
     setCheckedLong(!checkedLong);
     setCheckedMedium(!checkedMedium);
   };
+
+  // modal 
+  const [openModal, setOpenModal] = useState(false);
+
+  const _handleModal = () => {
+    setOpenModal(!openModal);
+    // console.log('changed visibility');
+  };
+  
+  // 인자값 받아오기 (medium / long 뭐 선택했는지)
+  const onClick3 = (e) => {
+    _handleModal();
+  }
 
   return (
     <Wrapper>
@@ -57,7 +72,10 @@ const Summary = ({ ...props }) => {
         <RadioButton onClick={onClick2} checked={checkedLong} />
         <Text>LONG</Text>
       </SubWrapper>
-      <Button style={{ marginTop: '60px' }}>GENERATE</Button>
+      <Button onClick = {onClick3} style={{ marginTop: '60px' }}>GENERATE</Button>
+      {openModal && (
+        <SummaryModal _handleModal={_handleModal}/>
+      )}
     </Wrapper>
   );
 };

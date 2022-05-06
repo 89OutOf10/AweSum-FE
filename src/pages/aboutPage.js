@@ -63,7 +63,7 @@ const Text = styled.div`
   text-align: center;
 `;
 
-const aboutPage = () => {
+const AboutPage = () => {
   return (
     <>
       <AboutBlock>
@@ -98,4 +98,4 @@ const aboutPage = () => {
   );
 };
 
-export default aboutPage;
+export default AboutPage;
