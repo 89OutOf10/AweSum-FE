@@ -103,18 +103,18 @@ const QuizBoard = styled.div`
 `;
 
 const MainPage = () => {
-  // modal 
+  // modal
   const [openModal, setOpenModal] = useState(false);
 
   const _handleModal = () => {
     setOpenModal(!openModal);
     // console.log('changed visibility');
   };
-    
+
   // 인자값 받아오기 (medium / long 뭐 선택했는지)
   const onClick = (e) => {
     _handleModal();
-  }
+  };
 
   return (
     <>
@@ -150,10 +150,10 @@ const MainPage = () => {
               이번 강의의 핵심 문장들로 출제된 OX QUIZ를 통해 <br /> 강의를
               얼마나 이해했는지 확인해보세요!
             </Text>
-            <Button onClick = {onClick} style={{ marginBottom: '10px' }}>시작하기</Button>
-            {openModal && (
-              <QuizModal _handleModal={_handleModal}/>
-            )}
+            <Button onClick={onClick} style={{ marginBottom: '10px' }}>
+              시작하기
+            </Button>
+            {openModal && <QuizModal _handleModal={_handleModal} />}
           </QuizBoard>
         </SubSection3>
       </Block1>

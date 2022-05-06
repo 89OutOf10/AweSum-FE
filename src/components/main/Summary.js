@@ -33,7 +33,7 @@ const SubWrapper = styled.div`
 `;
 
 const Summary = ({ ...props }) => {
-  // button 
+  // button
   const [checkedMedium, setCheckedMedium] = useState(true);
   const onClick = (e) => {
     setCheckedMedium(!checkedMedium);
@@ -46,18 +46,18 @@ const Summary = ({ ...props }) => {
     setCheckedMedium(!checkedMedium);
   };
 
-  // modal 
+  // modal
   const [openModal, setOpenModal] = useState(false);
 
   const _handleModal = () => {
     setOpenModal(!openModal);
     // console.log('changed visibility');
   };
-  
+
   // 인자값 받아오기 (medium / long 뭐 선택했는지)
   const onClick3 = (e) => {
     _handleModal();
-  }
+  };
 
   return (
     <Wrapper>
@@ -72,10 +72,10 @@ const Summary = ({ ...props }) => {
         <RadioButton onClick={onClick2} checked={checkedLong} />
         <Text>LONG</Text>
       </SubWrapper>
-      <Button onClick = {onClick3} style={{ marginTop: '60px' }}>GENERATE</Button>
-      {openModal && (
-        <SummaryModal _handleModal={_handleModal}/>
-      )}
+      <Button onClick={onClick3} style={{ marginTop: '60px' }}>
+        GENERATE
+      </Button>
+      {openModal && <SummaryModal _handleModal={_handleModal} />}
     </Wrapper>
   );
 };
