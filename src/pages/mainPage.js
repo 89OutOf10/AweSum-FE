@@ -6,6 +6,8 @@ import Input from '../components/main/Input';
 import TimeFrame from '../components/main/TimeFrame';
 import Summary from '../components/main/Summary';
 import QuizModal from '../components/main/QuizModal';
+import VideoPlayer from '../components/main/VideoPlayer';
+import ReactPlayer from 'react-player/youtube';
 
 const Block1 = styled.div`
   background: ${palette.pink[2]};
@@ -105,7 +107,6 @@ const QuizBoard = styled.div`
 const MainPage = () => {
   // modal
   const [openModal, setOpenModal] = useState(false);
-
   const _handleModal = () => {
     setOpenModal(!openModal);
     // console.log('changed visibility');
@@ -116,15 +117,43 @@ const MainPage = () => {
     _handleModal();
   };
 
+  // URL
+  const [inputs, setInputs] = useState(null);
+  const onChange = (e) => {
+    const value = e.target;
+    setInputs({
+      ...inputs,
+      value,
+    });
+  };
+
+  URL = 'https://www.youtube.com/watch?v=hmyjdCfeXUo';
+  // URL = 'https://www.youtube.com/watch?v=iHpVld1rJnM&t=1887s';
+
   return (
     <>
       <Block1>
         <SubSection1>
           <Board>
-            <Header style={{ marginLeft: '20px' }}>VIDEO</Header>
+            <Header
+              style={{
+                marginLeft: '20px',
+                marginBottom: '10px',
+                marginTop: '20px',
+              }}
+            >
+              VIDEO
+            </Header>
+            <ReactPlayer
+              controls={true}
+              // url="https://www.youtube.com/watch?v=hmyjdCfeXUo"
+              url={URL}
+              width={'100%'}
+              height={'70%'}
+            />
           </Board>
           <Wrapper>
-            <Input placeholder={'Type in the URL'} />
+            <Input onChange={onChange} placeholder={' Enter URL'} />
             <Button style={{ marginLeft: '10px' }}> ENTER </Button>
           </Wrapper>
         </SubSection1>
