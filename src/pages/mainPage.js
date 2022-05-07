@@ -105,30 +105,29 @@ const QuizBoard = styled.div`
 `;
 
 const MainPage = () => {
-  // modal
+  // URL
+  const [inputs, setInputs] = useState('');
+  const onChange = (e) => {
+    const value = e.target.value;
+    setInputs(value);
+  };
+
+  const [URL, setURL] = useState('https://www.youtube.com/watch?v=hmyjdCfeXUo');
+  const _handleClick = () => {
+    const value = inputs;
+    setURL(value);
+  };
+
+  // Modal
   const [openModal, setOpenModal] = useState(false);
   const _handleModal = () => {
     setOpenModal(!openModal);
     // console.log('changed visibility');
   };
-
-  // 인자값 받아오기 (medium / long 뭐 선택했는지)
+  /* 인자값 받아오기 (medium / long 뭐 선택했는지) */
   const onClick = (e) => {
     _handleModal();
   };
-
-  // URL
-  const [inputs, setInputs] = useState(null);
-  const onChange = (e) => {
-    const value = e.target;
-    setInputs({
-      ...inputs,
-      value,
-    });
-  };
-
-  URL = 'https://www.youtube.com/watch?v=hmyjdCfeXUo';
-  // URL = 'https://www.youtube.com/watch?v=iHpVld1rJnM&t=1887s';
 
   return (
     <>
@@ -146,15 +145,21 @@ const MainPage = () => {
             </Header>
             <ReactPlayer
               controls={true}
-              // url="https://www.youtube.com/watch?v=hmyjdCfeXUo"
               url={URL}
               width={'100%'}
               height={'70%'}
             />
           </Board>
           <Wrapper>
-            <Input onChange={onChange} placeholder={' Enter URL'} />
-            <Button style={{ marginLeft: '10px' }}> ENTER </Button>
+            <Input
+              value={inputs}
+              onChange={onChange}
+              placeholder={' Enter URL'}
+            />
+            <Button onClick={_handleClick} style={{ marginLeft: '10px' }}>
+              {' '}
+              ENTER{' '}
+            </Button>
           </Wrapper>
         </SubSection1>
         <SubSection2>
