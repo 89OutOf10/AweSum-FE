@@ -114,13 +114,12 @@ const MainPage = () => {
   };
 
   const [URL, setURL] = useState('https://www.youtube.com/watch?v=hmyjdCfeXUo');
-  const _handleClick = async () => {
+  const _handleClick = () => {
     const value = inputs;
     setURL(value);
-
     axios
       .post('http://54.167.81.218/videos/save/', {
-        url: 'https://www.youtube.com/watch?v=8rXD5-xhemo&list=PLoROMvodv4rOhcuXMZkNm7j3fVwBBY42z',
+        url: URL,
       })
       .then(function (response) {
         console.log(response);
@@ -128,6 +127,7 @@ const MainPage = () => {
       .catch(function (error) {
         console.log(error);
       });
+    console.log(URL);
   };
 
   // Modal

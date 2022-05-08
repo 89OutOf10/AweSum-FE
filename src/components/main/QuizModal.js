@@ -52,6 +52,9 @@ const Box = styled.div`
   width: 75%;
   height: 60px;
   border-radius: 7px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `;
 
 const RadioBlock = styled.div`
