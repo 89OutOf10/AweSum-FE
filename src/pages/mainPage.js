@@ -4,11 +4,11 @@ import styled from 'styled-components';
 import Button from '../components/common/Button';
 import palette from '../styles/palette';
 import Input from '../components/main/Input';
-import TimeFrame from '../components/main/TimeFrame';
 import Summary from '../components/summary/Summary';
 import QuizModal from '../components/quiz/QuizModal';
 import VideoPlayer from '../components/main/VideoPlayer';
 import ReactPlayer from 'react-player/youtube';
+import KeywordSearch from '../components/main/KeywordSearch';
 
 const Block1 = styled.div`
   background: ${palette.pink[2]};
@@ -39,7 +39,7 @@ const Wrapper = styled.div`
 
 const SubSection2 = styled.div`
   width: 38%;
-  height: 48em;
+  height: 850px;
   margin-right: 2%;
   display: flex;
   flex-direction: column;
@@ -175,8 +175,14 @@ const MainPage = () => {
           </Wrapper>
         </SubSection1>
         <SubSection2>
-          <Board style={{ borderRadius: '28px', height: '90%' }}>
-            <TimeFrame style={{ marginLeft: '20px', marginTop: '8%' }} />
+          <Board
+            style={{
+              borderRadius: '28px',
+              height: '90%',
+              justifyContent: 'space-around',
+            }}
+          >
+            <KeywordSearch />
           </Board>
         </SubSection2>
       </Block1>
