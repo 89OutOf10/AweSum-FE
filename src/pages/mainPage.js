@@ -119,7 +119,7 @@ const MainPage = () => {
     setURL(value);
     axios
       .post('http://54.167.81.218/videos/save/', {
-        url: URL,
+        url: value,
       })
       .then(function (response) {
         console.log(response);
@@ -127,7 +127,6 @@ const MainPage = () => {
       .catch(function (error) {
         console.log(error);
       });
-    console.log(URL);
   };
 
   // Modal
