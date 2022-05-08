@@ -33,29 +33,18 @@ const SubWrapper = styled.div`
 `;
 
 const Summary = ({ ...props }) => {
-  // button
-  const [checkedMedium, setCheckedMedium] = useState(true);
-  const onClick = (e) => {
-    setCheckedMedium(!checkedMedium);
-    setCheckedLong(!checkedLong);
-  };
-
-  const [checkedLong, setCheckedLong] = useState(false);
-  const onClick2 = (e) => {
-    setCheckedLong(!checkedLong);
-    setCheckedMedium(!checkedMedium);
+  const [length, setLength] = useState(2);
+  const _onClick = (id) => {
+    setLength(id);
   };
 
   // modal
   const [openModal, setOpenModal] = useState(false);
-
   const _handleModal = () => {
     setOpenModal(!openModal);
-    // console.log('changed visibility');
   };
-
   // 인자값 받아오기 (medium / long 뭐 선택했는지) - 연결시
-  const onClick3 = (e) => {
+  const onGenerate = (e) => {
     _handleModal();
   };
 
@@ -65,14 +54,24 @@ const Summary = ({ ...props }) => {
         CHOOSE SUMMARY LENGTH
       </Text>
       <SubWrapper>
-        <RadioButton onClick={onClick} checked={checkedMedium} />
-        <Text>MEDIUM</Text>
-      </SubWrapper>
-      <SubWrapper>
-        <RadioButton onClick={onClick2} checked={checkedLong} />
+        <RadioButton
+          onClick={() => {
+            _onClick(2);
+          }}
+          checked={length === 2}
+        />
         <Text>LONG</Text>
       </SubWrapper>
-      <Button onClick={onClick3} style={{ marginTop: '60px' }}>
+      <SubWrapper>
+        <RadioButton
+          onClick={() => {
+            _onClick(1);
+          }}
+          checked={length === 1}
+        />
+        <Text>MEDIUM</Text>
+      </SubWrapper>
+      <Button onClick={onGenerate} style={{ marginTop: '60px' }}>
         GENERATE
       </Button>
       {openModal && <SummaryModal _handleModal={_handleModal} />}
