@@ -195,7 +195,7 @@ const MainPage = () => {
               이번 강의의 핵심 문장들로 출제된 OX QUIZ를 통해 <br /> 강의를
               얼마나 이해했는지 확인해보세요!
             </Text>
-            <Button onClick={onClick} style={{ marginBottom: '10px' }}>
+            <Button onClick={onClick} style={{ marginBottom: '20px' }}>
               시작하기
             </Button>
             {openModal && <QuizModal _handleModal={_handleModal} />}

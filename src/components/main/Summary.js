@@ -54,7 +54,7 @@ const Summary = ({ ...props }) => {
     // console.log('changed visibility');
   };
 
-  // 인자값 받아오기 (medium / long 뭐 선택했는지)
+  // 인자값 받아오기 (medium / long 뭐 선택했는지) - 연결시
   const onClick3 = (e) => {
     _handleModal();
   };

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import QuizModalFrame from './QuizModalFrame';
 import palette from '../../styles/palette';
@@ -28,6 +28,7 @@ const Header = styled.div`
   font-weight: bold;
   font-size: 1.725rem;
   line-height: 50px;
+  margin-left: 10px;
 `;
 
 const SubHeader = styled.div`
@@ -35,6 +36,7 @@ const SubHeader = styled.div`
   font-style: normal;
   font-weight: bold;
   margin-top: 1.25rem;
+  margin-left: 10px;
   margin-bottom: 10px;
   font-size: 1rem;
 `;
@@ -154,7 +156,9 @@ const SummaryModal = ({ _handleModal }) => {
           </RadioBlock>
         </Row>
         <Row style={{ justifyContent: 'flex-end', height: '65px' }}>
-          <Button style={{ marginRight: '20px' }}>VIEW RESULTS</Button>
+          <Button style={{ marginRight: '20px', marginTop: '10px' }}>
+            VIEW RESULTS
+          </Button>
         </Row>
       </Col>
     </QuizModalFrame>
