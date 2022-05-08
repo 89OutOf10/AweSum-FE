@@ -5,8 +5,8 @@ import Button from '../components/common/Button';
 import palette from '../styles/palette';
 import Input from '../components/main/Input';
 import TimeFrame from '../components/main/TimeFrame';
-import Summary from '../components/main/Summary';
-import QuizModal from '../components/main/QuizModal';
+import Summary from '../components/summary/Summary';
+import QuizModal from '../components/quiz/QuizModal';
 import VideoPlayer from '../components/main/VideoPlayer';
 import ReactPlayer from 'react-player/youtube';
 
@@ -106,7 +106,8 @@ const QuizBoard = styled.div`
 `;
 
 const MainPage = () => {
-  // URL
+  // URL + Video_ID
+  const [videoID, setVideoId] = useState('');
   const [inputs, setInputs] = useState('');
   const onChange = (e) => {
     const value = e.target.value;
@@ -122,7 +123,8 @@ const MainPage = () => {
         url: value,
       })
       .then(function (response) {
-        console.log(response);
+        setVideoId(response.data.id);
+        console.log(response.data);
       })
       .catch(function (error) {
         console.log(error);
@@ -139,7 +141,6 @@ const MainPage = () => {
   const onClick = (e) => {
     _handleModal();
   };
-
   return (
     <>
       <Block1>
