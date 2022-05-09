@@ -74,7 +74,8 @@ const RadioBlock = styled.div`
   height: 40px;
 `;
 
-const SummaryModal = ({ _handleModal }) => {
+// ID만 넘겨주면 됨
+const QuizModal = ({ videoID, _handleModal }) => {
   // user selection
   const [quiz, setQuiz] = useState(quizForm);
   const _onClickQ1 = (id) => {
@@ -272,4 +273,4 @@ const SummaryModal = ({ _handleModal }) => {
   );
 };
 
-export default SummaryModal;
+export default QuizModal;

@@ -6,7 +6,6 @@ import palette from '../styles/palette';
 import Input from '../components/main/Input';
 import Summary from '../components/summary/Summary';
 import QuizModal from '../components/quiz/QuizModal';
-import VideoPlayer from '../components/main/VideoPlayer';
 import ReactPlayer from 'react-player/youtube';
 import KeywordSearch from '../components/main/KeywordSearch';
 import { USER_SERVER } from '../config.js';
@@ -183,7 +182,7 @@ const MainPage = () => {
               justifyContent: 'space-around',
             }}
           >
-            <KeywordSearch />
+            <KeywordSearch videoID={videoID} />
           </Board>
         </SubSection2>
       </Block1>
@@ -191,7 +190,7 @@ const MainPage = () => {
         <SubSection3>
           <Header>SUMMARY</Header>
           <Board style={{ height: '75%' }}>
-            <Summary />
+            <Summary videoID={videoID} />
           </Board>
         </SubSection3>
       </Block2>
@@ -206,7 +205,9 @@ const MainPage = () => {
             <Button onClick={onClick} style={{ marginBottom: '20px' }}>
               시작하기
             </Button>
-            {openModal && <QuizModal _handleModal={_handleModal} />}
+            {openModal && (
+              <QuizModal _handleModal={_handleModal} videoID={videoID} />
+            )}
           </QuizBoard>
         </SubSection3>
       </Block1>

@@ -26,7 +26,8 @@ const Text = styled.div`
   overflow: auto;
 `;
 
-const SummaryModal = ({ _handleModal }) => {
+//length, videoID 받아옴
+const SummaryModal = ({ length, videoID, _handleModal }) => {
   const [summary, setSummary] = useState('hello');
 
   return (
