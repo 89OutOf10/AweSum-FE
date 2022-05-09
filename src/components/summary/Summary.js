@@ -43,7 +43,7 @@ const Summary = ({ ...props }) => {
   const _handleModal = () => {
     setOpenModal(!openModal);
   };
-  // 인자값 받아오기 (medium / long 뭐 선택했는지) - 연결시
+  // 인자값 받아오기 (medium / long 뭐 선택했는지) - 연결시 (long: 2, medium: 1)
   const onGenerate = (e) => {
     _handleModal();
   };

@@ -4,7 +4,11 @@ import QuizModalFrame from './QuizModalFrame';
 import palette from '../../styles/palette';
 import RadioButton from '../common/RadioButton';
 import Button from '../common/Button';
-import { quizForm } from '../../assets/quiz/quizForm.js';
+import {
+  quizForm,
+  quizQuestion,
+  quizAnswer,
+} from '../../assets/quiz/quizForm.js';
 
 const Col = styled.div`
   display: flex;
@@ -71,6 +75,7 @@ const RadioBlock = styled.div`
 `;
 
 const SummaryModal = ({ _handleModal }) => {
+  // user selection
   const [quiz, setQuiz] = useState(quizForm);
   const _onClickQ1 = (id) => {
     setQuiz({
@@ -108,6 +113,9 @@ const SummaryModal = ({ _handleModal }) => {
       q6: id,
     });
   };
+
+  // question generate
+  const [question, setQuestion] = useState(quizQuestion);
 
   return (
     <QuizModalFrame _handleModal={_handleModal}>

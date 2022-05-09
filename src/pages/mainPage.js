@@ -9,6 +9,7 @@ import QuizModal from '../components/quiz/QuizModal';
 import VideoPlayer from '../components/main/VideoPlayer';
 import ReactPlayer from 'react-player/youtube';
 import KeywordSearch from '../components/main/KeywordSearch';
+import { USER_SERVER } from '../config.js';
 
 const Block1 = styled.div`
   background: ${palette.pink[2]};
@@ -119,7 +120,7 @@ const MainPage = () => {
     const value = inputs;
     setURL(value);
     axios
-      .post('http://54.167.81.218/videos/save/', {
+      .post(`${USER_SERVER}/videos/save/`, {
         url: value,
       })
       .then(function (response) {
