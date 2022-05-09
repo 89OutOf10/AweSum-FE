@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Responsive from './Responsive';
 import styled, { css } from 'styled-components';
 import palette from '../../styles/palette';
+import Logo_img from '../../assets/common/Logo.png';
 
 const menus = [
   { name: 'HOME', link: '/' },
@@ -28,12 +29,10 @@ const Wrapper = styled(Responsive)`
   }
 `;
 
-const Logo = styled.div`
-  font-family: 'Roboto', sans-serif;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 1.425rem;
-  margin-top: 10px;
+const LogoImg = styled.img`
+  padding-top: 5px;
+  height: 39px;
+  width: 100px;
 `;
 
 const MenusBlock = styled.div`
@@ -69,14 +68,7 @@ const Header = ({ onSelect }) => {
     <>
       <HeaderBlock>
         <Wrapper>
-          <Logo onClick={() => onSelect('HOME')}>
-            <Link
-              to="/"
-              style={{ textDecoration: 'none', color: `${palette.purple[0]}` }}
-            >
-              AweSUM
-            </Link>
-          </Logo>
+          <LogoImg src={Logo_img}></LogoImg>
           <MenusBlock>
             {menus.map((m) => (
               <Menu key={m.name} onClick={() => onSelect(m.name)}>

@@ -36,6 +36,7 @@ const Board = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 10px;
 `;
 
 const Wrapper = styled.div`
@@ -62,7 +63,7 @@ const Text = styled.div`
   text-align: center;
 `;
 
-const aboutPage = () => {
+const AboutPage = () => {
   return (
     <>
       <AboutBlock>
@@ -79,7 +80,7 @@ const aboutPage = () => {
           <SubWrapper>
             <img src={se} style={{ height: '150px' }} />
             <Text>NAME: SEYOUNG JEONG </Text>
-            <Text>POSITION: DL, FRONTEND</Text>
+            <Text>POSITION: DL MAIN DEV</Text>
           </SubWrapper>
           <SubWrapper>
             <img src={som} style={{ height: '150px' }} />
@@ -97,4 +98,4 @@ const aboutPage = () => {
   );
 };
 
-export default aboutPage;
+export default AboutPage;

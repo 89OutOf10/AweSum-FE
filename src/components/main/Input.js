@@ -15,15 +15,10 @@ const InputLine = styled.input`
   width: 76%;
 `;
 
-const Input = ({ placeholder }) => {
-  const [url, setURL] = useState('');
-  const onChangeURL = (e) => {
-    setURL(e.target.value);
-  };
-
+const Input = ({ value, onChange, placeholder }) => {
   return (
     <>
-      <InputLine value={url} onChange={onChangeURL} placeholder={placeholder} />
+      <InputLine value={value} onChange={onChange} placeholder={placeholder} />
     </>
   );
 };
