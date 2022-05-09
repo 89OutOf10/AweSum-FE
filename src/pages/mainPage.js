@@ -116,7 +116,7 @@ const MainPage = () => {
 
   const [URL, setURL] = useState('https://www.youtube.com/watch?v=hmyjdCfeXUo');
   const _handleClick = () => {
-    const value = inputs;
+    const value = inputs; //줄일수 있으면 줄이기
     setURL(value);
     axios
       .post(`${USER_SERVER}/videos/save/`, {
