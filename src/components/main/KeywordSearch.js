@@ -45,7 +45,7 @@ const Grid = styled.div`
   column-gap: 20px;
   justify-items: center;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 `;
 
 const Time = styled.div`
@@ -66,12 +66,18 @@ const Sentence = styled.div`
   overflow: auto;
 `;
 
-const KeywordSearch = () => {
+//videoID 랑 keyword 인자로 받음
+const KeywordSearch = ({ videoID }) => {
   const [inputs, setInputs] = useState('');
   const onChange = (e) => {
     const value = e.target.value;
     setInputs(value);
-    console.log(value);
+  };
+
+  // handle click
+  const [keyword, setKeyword] = useState('');
+  const onClick = () => {
+    setKeyword(inputs);
   };
 
   return (
@@ -122,7 +128,7 @@ const KeywordSearch = () => {
             onChange={onChange}
             placeholder={' Keyword Search '}
           />
-          <Button>ENTER</Button>
+          <Button onClick={onClick}>ENTER</Button>
         </Row>
       </Col>
     </>

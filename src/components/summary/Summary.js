@@ -32,7 +32,7 @@ const SubWrapper = styled.div`
   align-items: center;
 `;
 
-const Summary = ({ ...props }) => {
+const Summary = ({ videoID }) => {
   const [length, setLength] = useState(2);
   const _onClick = (id) => {
     setLength(id);
@@ -47,7 +47,7 @@ const Summary = ({ ...props }) => {
   const onGenerate = (e) => {
     _handleModal();
   };
-
+  // 비디오 ID 를
   return (
     <Wrapper>
       <Text style={{ marginBottom: '60px', fontWeight: 'bolder' }}>
@@ -74,7 +74,13 @@ const Summary = ({ ...props }) => {
       <Button onClick={onGenerate} style={{ marginTop: '60px' }}>
         GENERATE
       </Button>
-      {openModal && <SummaryModal _handleModal={_handleModal} />}
+      {openModal && (
+        <SummaryModal
+          _handleModal={_handleModal}
+          length={length}
+          videoID={videoID}
+        />
+      )}
     </Wrapper>
   );
 };
