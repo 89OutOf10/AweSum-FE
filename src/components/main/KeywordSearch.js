@@ -20,11 +20,10 @@ const Board = styled.div`
 const Col = styled.div`
   display: flex;
   width: 100%;
-  height: 96%;
+  height: 90%;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  margin-top: 25px;
 `;
 
 const Row = styled.div`
@@ -46,6 +45,7 @@ const Grid = styled.div`
   justify-items: center;
   align-items: center;
   margin-bottom: 30px;
+  margin-top: 30px;
 `;
 
 const Time = styled.div`
@@ -82,11 +82,9 @@ const KeywordSearch = ({ videoID }) => {
 
   return (
     <>
+      <TimeFrame style={{ marginLeft: '10px', marginTop: '20px' }} />
       <Col>
         <Board>
-          <TimeFrame
-            style={{ marginTop: '5%', marginLeft: '5%', marginBottom: '4%' }}
-          />
           <Grid>
             <Time>12:30</Time>
             <Sentence>
@@ -126,7 +124,7 @@ const KeywordSearch = ({ videoID }) => {
           <Input
             value={inputs}
             onChange={onChange}
-            placeholder={' Keyword Search '}
+            placeholder={' Enter Key-Word '}
           />
           <Button onClick={onClick}>ENTER</Button>
         </Row>
