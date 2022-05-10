@@ -4,6 +4,7 @@ import QuizModalFrame from './QuizModalFrame';
 import palette from '../../styles/palette';
 import RadioButton from '../common/RadioButton';
 import Button from '../common/Button';
+
 import {
   quizForm,
   quizQuestion,
@@ -51,7 +52,11 @@ const Questions = styled.div`
   font-style: normal;
   font-weight: normal;
   font-size: 1rem;
-  text-align: center;
+  text-align: flex-start;
+  width: 90%;
+  margin-left: 20px;
+  margin-top: 10px;
+  line-height: 20px;
 `;
 
 const Box = styled.div`
@@ -61,7 +66,8 @@ const Box = styled.div`
   border-radius: 7px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+  overflow: auto;
 `;
 
 const RadioBlock = styled.div`
@@ -75,7 +81,7 @@ const RadioBlock = styled.div`
 `;
 
 // ID만 넘겨주면 됨
-const QuizModal = ({ videoID, _handleModal }) => {
+const QuizModal = ({ question, _handleModal }) => {
   // user selection
   const [quiz, setQuiz] = useState(quizForm);
   const _onClickQ1 = (id) => {
@@ -115,9 +121,6 @@ const QuizModal = ({ videoID, _handleModal }) => {
     });
   };
 
-  // question generate
-  const [question, setQuestion] = useState(quizQuestion);
-
   return (
     <QuizModalFrame _handleModal={_handleModal}>
       <Col>
@@ -129,10 +132,7 @@ const QuizModal = ({ videoID, _handleModal }) => {
         <Row>
           <Header>01</Header>
           <Box>
-            <Questions>
-              W is a collection of all of the weights in our neural network, not
-              just from one layer, but from every layer
-            </Questions>
+            <Questions>{question[0].question}</Questions>
           </Box>
           <RadioBlock>
             <RadioButton
@@ -152,9 +152,7 @@ const QuizModal = ({ videoID, _handleModal }) => {
         <Row>
           <Header>02</Header>
           <Box>
-            <Questions>
-              nonlinear functions allow us to actually deal with linear data.
-            </Questions>
+            <Questions>{question[1].question}</Questions>
           </Box>
           <RadioBlock>
             <RadioButton
@@ -174,10 +172,7 @@ const QuizModal = ({ videoID, _handleModal }) => {
         <Row>
           <Header>03</Header>
           <Box>
-            <Questions>
-              Using nonlinear activation functions allows neural network to
-              approximate arbitrarily complex functions
-            </Questions>
+            <Questions>{question[2].question}</Questions>
           </Box>
           <RadioBlock>
             <RadioButton
@@ -197,10 +192,7 @@ const QuizModal = ({ videoID, _handleModal }) => {
         <Row>
           <Header>04</Header>
           <Box>
-            <Questions>
-              The sigmoid function divides the space into two parts of the river
-              because it outputs between 0 and 1.
-            </Questions>
+            <Questions>{question[3].question}</Questions>
           </Box>
           <RadioBlock>
             <RadioButton
@@ -220,10 +212,7 @@ const QuizModal = ({ videoID, _handleModal }) => {
         <Row>
           <Header>05</Header>
           <Box>
-            <Questions>
-              If a parameter starts in a potentially bad part of the landscape,
-              it can easily get stuck in local maximum.
-            </Questions>
+            <Questions>{question[4].question}</Questions>
           </Box>
           <RadioBlock>
             <RadioButton
@@ -243,10 +232,7 @@ const QuizModal = ({ videoID, _handleModal }) => {
         <Row>
           <Header>06</Header>
           <Box>
-            <Questions>
-              W is a collection of all of the weights in our neural network, not
-              just from one layer, but from every layer
-            </Questions>
+            <Questions>{question[5].question}</Questions>
           </Box>
           <RadioBlock>
             <RadioButton
