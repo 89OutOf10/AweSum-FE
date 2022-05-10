@@ -62,7 +62,7 @@ const Summary = ({ videoID }) => {
         .get(`${USER_SERVER}/summaries/long?id=${videoID}`)
         .then(function (response) {
           setSummary(response.data[0].body);
-          // console.log(response.data);
+          console.log('summary generation complete');
         })
         .catch(function (error) {
           console.log(error);

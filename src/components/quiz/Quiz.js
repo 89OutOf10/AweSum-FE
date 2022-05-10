@@ -4,6 +4,7 @@ import QuizModal from './QuizModal.js';
 import Button from '../common/Button';
 import axios from 'axios';
 import { USER_SERVER } from '../../config.js';
+import { quizForm } from '../../assets/quiz/quizForm.js';
 
 const Text = styled.div`
   font-family: 'Roboto', sans-serif;
@@ -52,12 +53,15 @@ const Quiz = ({ videoID }) => {
     axios
       .get(`${USER_SERVER}/quizzes/?id=${videoID}`)
       .then(function (response) {
+        console.log(response.data);
         setQuestion(response.data);
       })
       .catch(function (error) {
         console.log(error);
       });
   };
+
+  function setQ({ quizForm }) {}
 
   return (
     <QuizBoard>

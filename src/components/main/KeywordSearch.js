@@ -100,6 +100,7 @@ const KeywordSearch = ({ videoID }) => {
       .then(function (response) {
         setKeyword(response.data);
         setLoading(false);
+        console.log('complete');
       })
       .catch(function (error) {
         console.log(error);
@@ -129,7 +130,7 @@ const KeywordSearch = ({ videoID }) => {
       <Col>
         <Board>
           {keywords.map((keyword) => (
-            <KeywordList keyword={keyword} />
+            <KeywordList keyword={keyword} key={keyword.sub_num} />
           ))}
         </Board>
         <Row>

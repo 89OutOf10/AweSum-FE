@@ -89,6 +89,7 @@ const QuizModal = ({ question, _handleModal }) => {
       ...quiz,
       q1: id,
     });
+    console.log(question);
   };
   const _onClickQ2 = (id) => {
     setQuiz({
@@ -131,9 +132,7 @@ const QuizModal = ({ question, _handleModal }) => {
         </Row>
         <Row>
           <Header>01</Header>
-          <Box>
-            <Questions>{question[0].question}</Questions>
-          </Box>
+          <Box>{/* <Questions>{question[0].question}</Questions> */}</Box>
           <RadioBlock>
             <RadioButton
               checked={quiz.q1 === 1}
@@ -151,9 +150,7 @@ const QuizModal = ({ question, _handleModal }) => {
         </Row>
         <Row>
           <Header>02</Header>
-          <Box>
-            <Questions>{question[1].question}</Questions>
-          </Box>
+          <Box>{/* <Questions>{question[1].question}</Questions> */}</Box>
           <RadioBlock>
             <RadioButton
               checked={quiz.q2 === 1}
@@ -171,9 +168,7 @@ const QuizModal = ({ question, _handleModal }) => {
         </Row>
         <Row>
           <Header>03</Header>
-          <Box>
-            <Questions>{question[2].question}</Questions>
-          </Box>
+          <Box>{/* <Questions>{question[2].question}</Questions> */}</Box>
           <RadioBlock>
             <RadioButton
               checked={quiz.q3 === 1}
@@ -191,9 +186,7 @@ const QuizModal = ({ question, _handleModal }) => {
         </Row>
         <Row>
           <Header>04</Header>
-          <Box>
-            <Questions>{question[3].question}</Questions>
-          </Box>
+          <Box>{/* <Questions>{question[3].question}</Questions> */}</Box>
           <RadioBlock>
             <RadioButton
               checked={quiz.q4 === 1}
@@ -211,9 +204,7 @@ const QuizModal = ({ question, _handleModal }) => {
         </Row>
         <Row>
           <Header>05</Header>
-          <Box>
-            <Questions>{question[4].question}</Questions>
-          </Box>
+          <Box>{/* <Questions>{question[4].question}</Questions> */}</Box>
           <RadioBlock>
             <RadioButton
               checked={quiz.q5 === 1}
@@ -231,9 +222,7 @@ const QuizModal = ({ question, _handleModal }) => {
         </Row>
         <Row>
           <Header>06</Header>
-          <Box>
-            <Questions>{question[5].question}</Questions>
-          </Box>
+          <Box>{/* <Questions>{question[5].question}</Questions> */}</Box>
           <RadioBlock>
             <RadioButton
               checked={quiz.q6 === 1}
