@@ -107,7 +107,7 @@ const QuizBoard = styled.div`
 
 const MainPage = () => {
   // URL + Video_ID
-  const [videoID, setVideoId] = useState('');
+  const [videoID, setVideoId] = useState(13);
   const [inputs, setInputs] = useState('');
   const onChange = (e) => {
     const value = e.target.value;
@@ -116,7 +116,7 @@ const MainPage = () => {
 
   const [URL, setURL] = useState('https://www.youtube.com/watch?v=hmyjdCfeXUo');
   const _handleClick = () => {
-    const value = inputs; //줄일 수 있으면 줄이기
+    const value = inputs;
     setURL(value);
     axios
       .post(`${USER_SERVER}/videos/save/`, {
