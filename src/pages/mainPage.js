@@ -5,7 +5,7 @@ import Button from '../components/common/Button';
 import palette from '../styles/palette';
 import Input from '../components/main/Input';
 import Summary from '../components/summary/Summary';
-import QuizModal from '../components/quiz/QuizModal';
+import Quiz from '../components/quiz/Quiz';
 import ReactPlayer from 'react-player/youtube';
 import KeywordSearch from '../components/main/KeywordSearch';
 import { USER_SERVER } from '../config.js';
@@ -85,26 +85,6 @@ const Board = styled.div`
   align-items: flex-start;
 `;
 
-const Text = styled.div`
-  font-family: 'Roboto', sans-serif;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 1.725rem;
-  line-height: 35px;
-  text-align: center;
-`;
-
-const QuizBoard = styled.div`
-  background: #ffffff;
-  border-radius: 16px;
-  height: 80%;
-  width: 90%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-`;
-
 const MainPage = () => {
   // URL + Video_ID
   const [videoID, setVideoId] = useState(13);
@@ -131,16 +111,6 @@ const MainPage = () => {
       });
   };
 
-  // Modal
-  const [openModal, setOpenModal] = useState(false);
-  const _handleModal = () => {
-    setOpenModal(!openModal);
-    // console.log('changed visibility');
-  };
-  /* 인자값 받아오기 (medium / long 뭐 선택했는지) */
-  const onClick = (e) => {
-    _handleModal();
-  };
   return (
     <>
       <Block1>
@@ -196,19 +166,7 @@ const MainPage = () => {
       </Block2>
       <Block1>
         <SubSection3>
-          <QuizBoard>
-            <Header>OX QUIZ</Header>
-            <Text>
-              이번 강의의 핵심 문장들로 출제된 OX QUIZ를 통해 <br /> 강의를
-              얼마나 이해했는지 확인해보세요!
-            </Text>
-            <Button onClick={onClick} style={{ marginBottom: '20px' }}>
-              시작하기
-            </Button>
-            {openModal && (
-              <QuizModal _handleModal={_handleModal} videoID={videoID} />
-            )}
-          </QuizBoard>
+          <Quiz videoID={videoID} />
         </SubSection3>
       </Block1>
     </>
