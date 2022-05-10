@@ -107,7 +107,7 @@ const QuizBoard = styled.div`
 
 const MainPage = () => {
   // URL + Video_ID
-  const [videoID, setVideoId] = useState('');
+  const [videoID, setVideoId] = useState(13);
   const [inputs, setInputs] = useState('');
   const onChange = (e) => {
     const value = e.target.value;
