@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Button from '../common/Button';
 import RadioButton from '../common/RadioButton';
 import SummaryModal from './SummaryModal';
-import axios from 'axios';
-import { USER_SERVER } from '../../config.js';
 
 const Wrapper = styled.div`
   margin-top: 15%;
@@ -46,37 +44,8 @@ const Summary = ({ videoID }) => {
     setOpenModal(!openModal);
   };
 
-  // 인자값 받아오기 (medium / long 뭐 선택했는지) - 연결시 (long: 2, medium: 1)
   const onGenerate = (e) => {
-    request();
     _handleModal();
-  };
-
-  // 비디오 ID 이용해서 response 받기
-  const [summary, setSummary] = useState('');
-  const request = () => {
-    console.log('requesting summary');
-    length === 2 &&
-      axios
-        .get(`${USER_SERVER}/summaries/long?id=${videoID}`)
-        .then(function (response) {
-          setSummary(response.data[0].body);
-          console.log('long summary generated');
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-
-    length === 1 &&
-      axios
-        .get(`${USER_SERVER}/summaries/medium?id=${videoID}`)
-        .then(function (response) {
-          setSummary(response.data[0].body);
-          console.log('medium summary generated');
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
   };
 
   return (
@@ -106,7 +75,11 @@ const Summary = ({ videoID }) => {
         GENERATE
       </Button>
       {openModal && (
-        <SummaryModal _handleModal={_handleModal} summary={summary} />
+        <SummaryModal
+          _handleModal={_handleModal}
+          videoID={videoID}
+          length={length}
+        />
       )}
     </Wrapper>
   );

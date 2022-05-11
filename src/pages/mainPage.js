@@ -8,7 +8,7 @@ import Summary from '../components/summary/Summary';
 import Quiz from '../components/quiz/Quiz';
 import ReactPlayer from 'react-player/youtube';
 import KeywordSearch from '../components/main/KeywordSearch';
-import { USER_SERVER } from '../config.js';
+import { USER_SERVER, DEFAULT_VIDEO } from '../config.js';
 
 const Block1 = styled.div`
   background: ${palette.pink[2]};
@@ -94,7 +94,7 @@ const MainPage = () => {
     setInputs(value);
   };
 
-  const [URL, setURL] = useState('https://www.youtube.com/watch?v=hmyjdCfeXUo');
+  const [URL, setURL] = useState(`${DEFAULT_VIDEO}`);
   const _handleClick = () => {
     const value = inputs; //줄일수 있으면 줄이기
     setURL(value);

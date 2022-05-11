@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import ModalFrame from '../common/ModalFrame';
 import palette from '../../styles/palette.js';
 import axios from 'axios';
+import { USER_SERVER } from '../../config.js';
 
 const Textbox = styled.div`
   background: ${palette.pink[0]};
@@ -28,7 +29,49 @@ const Text = styled.div`
 `;
 
 //length, videoID 받아옴
-const SummaryModal = ({ summary, _handleModal }) => {
+const SummaryModal = ({ _handleModal, videoID, length }) => {
+  useEffect(() => {
+    request();
+  }, []);
+
+  const [loading, setLoading] = useState(true);
+
+  // 비디오 ID 이용해서 response 받기
+  const [summary, setSummary] = useState('');
+  const request = () => {
+    console.log('requesting summary');
+    length === 2 &&
+      axios
+        .get(`${USER_SERVER}/summaries/long?id=${videoID}`)
+        .then(function (response) {
+          setSummary(response.data[0].body);
+          console.log('long summary generated');
+          setLoading(false);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+
+    length === 1 &&
+      axios
+        .get(`${USER_SERVER}/summaries/medium?id=${videoID}`)
+        .then(function (response) {
+          setSummary(response.data[0].body);
+          console.log('medium summary generated');
+          setLoading(false);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+  };
+  if (loading)
+    return (
+      <ModalFrame _handleModal={_handleModal}>
+        <h1>Summary</h1>
+        <Textbox></Textbox>
+      </ModalFrame>
+    );
+
   return (
     <ModalFrame _handleModal={_handleModal}>
       <h1>Summary</h1>

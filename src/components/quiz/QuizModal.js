@@ -107,7 +107,6 @@ const QuizModal = ({ videoID, _handleModal }) => {
       ...quiz,
       q1: id,
     });
-    console.log(question);
   };
   const _onClickQ2 = (id) => {
     setQuiz({
@@ -146,7 +145,6 @@ const QuizModal = ({ videoID, _handleModal }) => {
   const _handleClick = () => {
     viewResult(true);
     console.log('viewing result');
-    console.log(question[0].answer);
   };
 
   if (loading)
