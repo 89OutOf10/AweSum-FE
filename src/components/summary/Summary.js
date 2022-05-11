@@ -56,13 +56,13 @@ const Summary = ({ videoID }) => {
   // http://ec2-13-209-76-72.ap-northeast-2.compute.amazonaws.com/summaries/long?id=13
   const [summary, setSummary] = useState('');
   const request = () => {
-    console.log('im requesting summary');
+    console.log('requesting summary');
     length === 2 &&
       axios
         .get(`${USER_SERVER}/summaries/long?id=${videoID}`)
         .then(function (response) {
           setSummary(response.data[0].body);
-          console.log('summary generation complete');
+          console.log('long summary generated');
         })
         .catch(function (error) {
           console.log(error);
@@ -73,7 +73,7 @@ const Summary = ({ videoID }) => {
         .get(`${USER_SERVER}/summaries/medium?id=${videoID}`)
         .then(function (response) {
           setSummary(response.data[0].body);
-          // console.log(response.data);
+          console.log('medium summary generated');
         })
         .catch(function (error) {
           console.log(error);
