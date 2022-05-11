@@ -129,7 +129,7 @@ const KeywordSearch = ({ videoID }) => {
       <Col>
         <Board>
           {keywords.map((keyword) => (
-            <KeywordList keyword={keyword} />
+            <KeywordList keyword={keyword} key={keyword.sub_num} />
           ))}
         </Board>
         <Row>
