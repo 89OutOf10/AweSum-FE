@@ -82,7 +82,7 @@ const RadioBlock = styled.div`
   height: 40px;
 `;
 
-// ID만 넘겨주면 됨
+// Answer - response.data[0].answer 로 접근
 const QuizModal = ({ videoID, _handleModal }) => {
   const [loading, setLoading] = useState(true);
   const [question, setQuestion] = useState();
@@ -93,7 +93,6 @@ const QuizModal = ({ videoID, _handleModal }) => {
       .get(`${USER_SERVER}/quizzes/?id=${videoID}`)
       .then(function (response) {
         setQuestion(response.data);
-        console.log(response.data);
         setLoading(false);
       })
       .catch(function (error) {
@@ -141,6 +140,12 @@ const QuizModal = ({ videoID, _handleModal }) => {
       ...quiz,
       q6: id,
     });
+  };
+
+  // after clicking
+  const _handleClick = () => {
+    console.log(quiz);
+    console.log(quiz.q1);
   };
 
   if (loading)
@@ -291,9 +296,9 @@ const QuizModal = ({ videoID, _handleModal }) => {
               }}
             />
             <RadioButton
-              checked={quiz.q1 === 2}
+              checked={quiz.q1 === 0}
               onClick={() => {
-                _onClickQ1(2);
+                _onClickQ1(0);
               }}
             />
           </RadioBlock>
@@ -311,9 +316,9 @@ const QuizModal = ({ videoID, _handleModal }) => {
               }}
             />
             <RadioButton
-              checked={quiz.q2 === 2}
+              checked={quiz.q2 === 0}
               onClick={() => {
-                _onClickQ2(2);
+                _onClickQ2(0);
               }}
             />
           </RadioBlock>
@@ -331,9 +336,9 @@ const QuizModal = ({ videoID, _handleModal }) => {
               }}
             />
             <RadioButton
-              checked={quiz.q3 === 2}
+              checked={quiz.q3 === 0}
               onClick={() => {
-                _onClickQ3(2);
+                _onClickQ3(0);
               }}
             />
           </RadioBlock>
@@ -351,9 +356,9 @@ const QuizModal = ({ videoID, _handleModal }) => {
               }}
             />
             <RadioButton
-              checked={quiz.q4 === 2}
+              checked={quiz.q4 === 0}
               onClick={() => {
-                _onClickQ4(2);
+                _onClickQ4(0);
               }}
             />
           </RadioBlock>
@@ -371,9 +376,9 @@ const QuizModal = ({ videoID, _handleModal }) => {
               }}
             />
             <RadioButton
-              checked={quiz.q5 === 2}
+              checked={quiz.q5 === 0}
               onClick={() => {
-                _onClickQ5(2);
+                _onClickQ5(0);
               }}
             />
           </RadioBlock>
@@ -391,15 +396,18 @@ const QuizModal = ({ videoID, _handleModal }) => {
               }}
             />
             <RadioButton
-              checked={quiz.q6 === 2}
+              checked={quiz.q6 === 0}
               onClick={() => {
-                _onClickQ6(2);
+                _onClickQ6(0);
               }}
             />
           </RadioBlock>
         </Row>
         <Row style={{ justifyContent: 'flex-end', height: '65px' }}>
-          <Button style={{ marginRight: '20px', marginTop: '10px' }}>
+          <Button
+            style={{ marginRight: '20px', marginTop: '10px' }}
+            onClick={_handleClick}
+          >
             VIEW RESULTS
           </Button>
         </Row>
