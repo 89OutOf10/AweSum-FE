@@ -61,8 +61,6 @@ const Quiz = ({ videoID }) => {
       });
   };
 
-  function setQ({ quizForm }) {}
-
   return (
     <QuizBoard>
       <Header>OX QUIZ</Header>
