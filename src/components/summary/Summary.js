@@ -53,7 +53,6 @@ const Summary = ({ videoID }) => {
   };
 
   // 비디오 ID 이용해서 response 받기
-  // http://ec2-13-209-76-72.ap-northeast-2.compute.amazonaws.com/summaries/long?id=13
   const [summary, setSummary] = useState('');
   const request = () => {
     console.log('requesting summary');

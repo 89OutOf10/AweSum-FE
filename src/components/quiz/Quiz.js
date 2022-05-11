@@ -43,22 +43,7 @@ const Quiz = ({ videoID }) => {
   };
 
   const onClick = (e) => {
-    request();
     _handleModal();
-  };
-
-  const [question, setQuestion] = useState();
-  const request = () => {
-    console.log('im requesting quiz');
-    axios
-      .get(`${USER_SERVER}/quizzes/?id=${videoID}`)
-      .then(function (response) {
-        console.log(response.data);
-        setQuestion(response.data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
   };
 
   return (
@@ -71,9 +56,7 @@ const Quiz = ({ videoID }) => {
       <Button onClick={onClick} style={{ marginBottom: '20px' }}>
         시작하기
       </Button>
-      {openModal && (
-        <QuizModal question={question} _handleModal={_handleModal} />
-      )}
+      {openModal && <QuizModal videoID={videoID} _handleModal={_handleModal} />}
     </QuizBoard>
   );
 };
