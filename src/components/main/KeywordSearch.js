@@ -101,6 +101,7 @@ const KeywordSearch = ({ videoID }) => {
         setKeyword(response.data);
         setLoading(false);
         console.log('complete');
+        console.log(response.data.length);
       })
       .catch(function (error) {
         console.log(error);

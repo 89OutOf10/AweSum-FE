@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import ModalFrame from '../common/ModalFrame';
 import palette from '../../styles/palette.js';
 import axios from 'axios';
+import { Oval, MutatingDots } from 'react-loader-spinner';
 import { USER_SERVER } from '../../config.js';
 
 const Textbox = styled.div`
@@ -68,7 +69,9 @@ const SummaryModal = ({ _handleModal, videoID, length }) => {
     return (
       <ModalFrame _handleModal={_handleModal}>
         <h1>Summary</h1>
-        <Textbox></Textbox>
+        <Textbox>
+          <MutatingDots color="purple" />
+        </Textbox>
       </ModalFrame>
     );
 
