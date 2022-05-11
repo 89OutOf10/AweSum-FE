@@ -4,6 +4,8 @@ import QuizModalFrame from './QuizModalFrame';
 import palette from '../../styles/palette';
 import RadioButton from '../common/RadioButton';
 import Button from '../common/Button';
+import axios from 'axios';
+import { USER_SERVER } from '../../config.js';
 
 import {
   quizForm,
@@ -81,7 +83,27 @@ const RadioBlock = styled.div`
 `;
 
 // ID만 넘겨주면 됨
-const QuizModal = ({ question, _handleModal }) => {
+const QuizModal = ({ videoID, _handleModal }) => {
+  const [loading, setLoading] = useState(true);
+  const [question, setQuestion] = useState();
+
+  useEffect(() => {
+    console.log('im requesting quiz');
+    axios
+      .get(`${USER_SERVER}/quizzes/?id=${videoID}`)
+      .then(function (response) {
+        setQuestion(response.data);
+        console.log(response.data);
+        setLoading(false);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    return () => {
+      console.log('quiz ended');
+    };
+  }, []);
+
   // user selection
   const [quiz, setQuiz] = useState(quizForm);
   const _onClickQ1 = (id) => {
@@ -121,6 +143,133 @@ const QuizModal = ({ question, _handleModal }) => {
     });
   };
 
+  if (loading)
+    return (
+      <QuizModalFrame _handleModal={_handleModal}>
+        <Col>
+          <Header>OX Quiz</Header>
+          <Row>
+            <SubHeader>QUESTIONS</SubHeader>
+            <SubHeader style={{ marginRight: '3rem' }}>TRUE / FALSE</SubHeader>
+          </Row>
+          <Row>
+            <Header>01</Header>
+            <Box>
+              <Questions></Questions>
+            </Box>
+            <RadioBlock>
+              <RadioButton
+                checked={quiz.q1 === 1}
+                onClick={() => {
+                  _onClickQ1(1);
+                }}
+              />
+              <RadioButton
+                checked={quiz.q1 === 2}
+                onClick={() => {
+                  _onClickQ1(2);
+                }}
+              />
+            </RadioBlock>
+          </Row>
+          <Row>
+            <Header>02</Header>
+            <Box>{/* <Questions>{question[1].question}</Questions> */}</Box>
+            <RadioBlock>
+              <RadioButton
+                checked={quiz.q2 === 1}
+                onClick={() => {
+                  _onClickQ2(1);
+                }}
+              />
+              <RadioButton
+                checked={quiz.q2 === 2}
+                onClick={() => {
+                  _onClickQ2(2);
+                }}
+              />
+            </RadioBlock>
+          </Row>
+          <Row>
+            <Header>03</Header>
+            <Box>{/* <Questions>{question[2].question}</Questions> */}</Box>
+            <RadioBlock>
+              <RadioButton
+                checked={quiz.q3 === 1}
+                onClick={() => {
+                  _onClickQ3(1);
+                }}
+              />
+              <RadioButton
+                checked={quiz.q3 === 2}
+                onClick={() => {
+                  _onClickQ3(2);
+                }}
+              />
+            </RadioBlock>
+          </Row>
+          <Row>
+            <Header>04</Header>
+            <Box>{/* <Questions>{question[3].question}</Questions> */}</Box>
+            <RadioBlock>
+              <RadioButton
+                checked={quiz.q4 === 1}
+                onClick={() => {
+                  _onClickQ4(1);
+                }}
+              />
+              <RadioButton
+                checked={quiz.q4 === 2}
+                onClick={() => {
+                  _onClickQ4(2);
+                }}
+              />
+            </RadioBlock>
+          </Row>
+          <Row>
+            <Header>05</Header>
+            <Box>{/* <Questions>{question[4].question}</Questions> */}</Box>
+            <RadioBlock>
+              <RadioButton
+                checked={quiz.q5 === 1}
+                onClick={() => {
+                  _onClickQ5(1);
+                }}
+              />
+              <RadioButton
+                checked={quiz.q5 === 2}
+                onClick={() => {
+                  _onClickQ5(2);
+                }}
+              />
+            </RadioBlock>
+          </Row>
+          <Row>
+            <Header>06</Header>
+            <Box>{/* <Questions>{question[5].question}</Questions> */}</Box>
+            <RadioBlock>
+              <RadioButton
+                checked={quiz.q6 === 1}
+                onClick={() => {
+                  _onClickQ6(1);
+                }}
+              />
+              <RadioButton
+                checked={quiz.q6 === 2}
+                onClick={() => {
+                  _onClickQ6(2);
+                }}
+              />
+            </RadioBlock>
+          </Row>
+          <Row style={{ justifyContent: 'flex-end', height: '65px' }}>
+            <Button style={{ marginRight: '20px', marginTop: '10px' }}>
+              VIEW RESULTS
+            </Button>
+          </Row>
+        </Col>
+      </QuizModalFrame>
+    );
   return (
     <QuizModalFrame _handleModal={_handleModal}>
       <Col>
@@ -131,7 +280,9 @@ const QuizModal = ({ question, _handleModal }) => {
         </Row>
         <Row>
           <Header>01</Header>
-          <Box>{/* <Questions>{question[0].question}</Questions> */}</Box>
+          <Box>
+            <Questions>{question[0].question}</Questions>
+          </Box>
           <RadioBlock>
             <RadioButton
               checked={quiz.q1 === 1}
@@ -149,7 +300,9 @@ const QuizModal = ({ question, _handleModal }) => {
         </Row>
         <Row>
           <Header>02</Header>
-          <Box>{/* <Questions>{question[1].question}</Questions> */}</Box>
+          <Box>
+            <Questions>{question[1].question}</Questions>
+          </Box>
           <RadioBlock>
             <RadioButton
               checked={quiz.q2 === 1}
@@ -167,7 +320,9 @@ const QuizModal = ({ question, _handleModal }) => {
         </Row>
         <Row>
           <Header>03</Header>
-          <Box>{/* <Questions>{question[2].question}</Questions> */}</Box>
+          <Box>
+            <Questions>{question[2].question}</Questions>
+          </Box>
           <RadioBlock>
             <RadioButton
               checked={quiz.q3 === 1}
@@ -185,7 +340,9 @@ const QuizModal = ({ question, _handleModal }) => {
         </Row>
         <Row>
           <Header>04</Header>
-          <Box>{/* <Questions>{question[3].question}</Questions> */}</Box>
+          <Box>
+            <Questions>{question[3].question}</Questions>
+          </Box>
           <RadioBlock>
             <RadioButton
               checked={quiz.q4 === 1}
@@ -203,7 +360,9 @@ const QuizModal = ({ question, _handleModal }) => {
         </Row>
         <Row>
           <Header>05</Header>
-          <Box>{/* <Questions>{question[4].question}</Questions> */}</Box>
+          <Box>
+            <Questions>{question[4].question}</Questions>
+          </Box>
           <RadioBlock>
             <RadioButton
               checked={quiz.q5 === 1}
@@ -221,7 +380,9 @@ const QuizModal = ({ question, _handleModal }) => {
         </Row>
         <Row>
           <Header>06</Header>
-          <Box>{/* <Questions>{question[5].question}</Questions> */}</Box>
+          <Box>
+            <Questions>{question[5].question}</Questions>
+          </Box>
           <RadioBlock>
             <RadioButton
               checked={quiz.q6 === 1}
