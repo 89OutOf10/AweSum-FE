@@ -46,6 +46,7 @@ const SummaryModal = ({ _handleModal, videoID, length }) => {
         .get(`${USER_SERVER}/summaries/long?id=${videoID}`)
         .then(function (response) {
           setSummary(response.data[0].body);
+          console.log(response.data[0].body);
           console.log('long summary generated');
           setLoading(false);
         })
