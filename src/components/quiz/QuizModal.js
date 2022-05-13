@@ -7,7 +7,7 @@ import ResultButton from '../common/ResultButton';
 import Button from '../common/Button';
 import axios from 'axios';
 import { USER_SERVER } from '../../config.js';
-
+import { MutatingDots } from 'react-loader-spinner';
 import { quizForm } from '../../assets/quiz/quizForm.js';
 
 const Col = styled.div`
@@ -152,126 +152,10 @@ const QuizModal = ({ videoID, _handleModal }) => {
       <QuizModalFrame _handleModal={_handleModal}>
         <Col>
           <Header>OX Quiz</Header>
-          <Row>
-            <SubHeader>QUESTIONS</SubHeader>
-            <SubHeader style={{ marginRight: '3rem' }}>TRUE / FALSE</SubHeader>
-          </Row>
-          <Row>
-            <Header>01</Header>
-            <Box>
-              <Questions></Questions>
-            </Box>
-            <RadioBlock>
-              <RadioButton
-                checked={quiz.q1 === 1}
-                onClick={() => {
-                  _onClickQ1(1);
-                }}
-              />
-              <RadioButton
-                checked={quiz.q1 === 2}
-                onClick={() => {
-                  _onClickQ1(2);
-                }}
-              />
-            </RadioBlock>
-          </Row>
-          <Row>
-            <Header>02</Header>
-            <Box>{/* <Questions>{question[1].question}</Questions> */}</Box>
-            <RadioBlock>
-              <RadioButton
-                checked={quiz.q2 === 1}
-                onClick={() => {
-                  _onClickQ2(1);
-                }}
-              />
-              <RadioButton
-                checked={quiz.q2 === 2}
-                onClick={() => {
-                  _onClickQ2(2);
-                }}
-              />
-            </RadioBlock>
-          </Row>
-          <Row>
-            <Header>03</Header>
-            <Box>{/* <Questions>{question[2].question}</Questions> */}</Box>
-            <RadioBlock>
-              <RadioButton
-                checked={quiz.q3 === 1}
-                onClick={() => {
-                  _onClickQ3(1);
-                }}
-              />
-              <RadioButton
-                checked={quiz.q3 === 2}
-                onClick={() => {
-                  _onClickQ3(2);
-                }}
-              />
-            </RadioBlock>
-          </Row>
-          <Row>
-            <Header>04</Header>
-            <Box>{/* <Questions>{question[3].question}</Questions> */}</Box>
-            <RadioBlock>
-              <RadioButton
-                checked={quiz.q4 === 1}
-                onClick={() => {
-                  _onClickQ4(1);
-                }}
-              />
-              <RadioButton
-                checked={quiz.q4 === 2}
-                onClick={() => {
-                  _onClickQ4(2);
-                }}
-              />
-            </RadioBlock>
-          </Row>
-          <Row>
-            <Header>05</Header>
-            <Box>{/* <Questions>{question[4].question}</Questions> */}</Box>
-            <RadioBlock>
-              <RadioButton
-                checked={quiz.q5 === 1}
-                onClick={() => {
-                  _onClickQ5(1);
-                }}
-              />
-              <RadioButton
-                checked={quiz.q5 === 2}
-                onClick={() => {
-                  _onClickQ5(2);
-                }}
-              />
-            </RadioBlock>
-          </Row>
-          <Row>
-            <Header>06</Header>
-            <Box>{/* <Questions>{question[5].question}</Questions> */}</Box>
-            <RadioBlock>
-              <RadioButton
-                checked={quiz.q6 === 1}
-                onClick={() => {
-                  _onClickQ6(1);
-                }}
-              />
-              <RadioButton
-                checked={quiz.q6 === 2}
-                onClick={() => {
-                  _onClickQ6(2);
-                }}
-              />
-            </RadioBlock>
-          </Row>
-          <Row style={{ justifyContent: 'flex-end', height: '65px' }}>
-            <Button style={{ marginRight: '20px', marginTop: '10px' }}>
-              VIEW RESULTS
-            </Button>
-          </Row>
         </Col>
+        <div style={{ marginTop: '30%' }}>
+          <MutatingDots color="purple" />
+        </div>
       </QuizModalFrame>
     );
   return (

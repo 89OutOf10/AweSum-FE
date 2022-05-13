@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import ModalFrame from '../common/ModalFrame';
 import palette from '../../styles/palette.js';
 import axios from 'axios';
-import { Oval, MutatingDots } from 'react-loader-spinner';
+import { MutatingDots } from 'react-loader-spinner';
 import { USER_SERVER } from '../../config.js';
 
 const Textbox = styled.div`
@@ -46,7 +46,6 @@ const SummaryModal = ({ _handleModal, videoID, length }) => {
         .get(`${USER_SERVER}/summaries/long?id=${videoID}`)
         .then(function (response) {
           setSummary(response.data[0].body);
-          console.log(response.data[0].body);
           console.log('long summary generated');
           setLoading(false);
         })
