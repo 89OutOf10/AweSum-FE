@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/AweSum-FE/static/css/main.2291ce58.css",
-    "main.js": "/AweSum-FE/static/js/main.d7288965.js",
+    "main.js": "/AweSum-FE/static/js/main.c47ffd23.js",
     "static/media/icon_somin.png": "/AweSum-FE/static/media/icon_somin.1ee8ae51b68e5afdb3cc.png",
     "static/media/icon_seojeong.png": "/AweSum-FE/static/media/icon_seojeong.f4a95e7da6e3d95be525.png",
     "static/media/icon_yuna.png": "/AweSum-FE/static/media/icon_yuna.01a6ee1904f6f9b845cb.png",
     "static/media/icon_seyoung.png": "/AweSum-FE/static/media/icon_seyoung.d266be1080aa1d0e060a.png",
     "index.html": "/AweSum-FE/index.html",
     "main.2291ce58.css.map": "/AweSum-FE/static/css/main.2291ce58.css.map",
-    "main.d7288965.js.map": "/AweSum-FE/static/js/main.d7288965.js.map"
+    "main.c47ffd23.js.map": "/AweSum-FE/static/js/main.c47ffd23.js.map"
   },
   "entrypoints": [
     "static/css/main.2291ce58.css",
-    "static/js/main.d7288965.js"
+    "static/js/main.c47ffd23.js"
   ]
 }
