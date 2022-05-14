@@ -76,7 +76,7 @@ const Header = ({ onSelect }) => {
                   to={`${m.link}`}
                   style={{
                     textDecoration: 'none',
-                    color: `${palette.purple[0]}`,
+                    color: `${palette.purple[1]}`,
                   }}
                 >
                   {m.name}

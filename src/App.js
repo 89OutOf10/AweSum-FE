@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import { Route, Switch, HashRouter as Router } from 'react-router-dom';
+import { Route, Switch, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import ScrollToTop from './components/common/ScrollToTop';
 
@@ -14,20 +14,24 @@ const Main = styled.div`
 `;
 
 const App = () => {
+  const history = useHistory();
+  useEffect(() => {
+    history.push('');
+  }, []);
+
   const [menu, setMenu] = useState('HOME');
-  const onSelect = useCallback((menu) => setMenu(menu), []);
+  const onSelect = useCallback((menu) => {
+    setMenu(menu);
+    console.log(menu);
+  }, []);
 
   return (
     <>
       <Header menu={menu} onSelect={onSelect} />
       <Main>
         <ScrollToTop />
-        <Router>
-          <Switch>
-            <Route component={mainPage} path="/" exact={true} />
-            <Route component={aboutPage} path="/about" exact={true} />
-          </Switch>
-        </Router>
+        <Route component={mainPage} path="/" exact="true" />
+        <Route component={aboutPage} path="/about" />
       </Main>
       <Footer />
     </>
