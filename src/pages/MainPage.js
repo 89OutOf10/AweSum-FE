@@ -86,6 +86,9 @@ const Board = styled.div`
 `;
 
 const MainPage = () => {
+  useEffect(() => {
+    console.log('hi');
+  }, []);
   // URL + Video_ID
   const [videoID, setVideoId] = useState(13);
   const [inputs, setInputs] = useState('');
