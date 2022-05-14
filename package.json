@@ -17,7 +17,7 @@
     "styled-components": "^5.3.3",
     "web-vitals": "^2.1.0"
   },
-  "homepage": "http://89OutOf10.github.io/AweSum-FE/",
+  "homepage": "http://89OutOf10.github.io/AweSum-FE",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
