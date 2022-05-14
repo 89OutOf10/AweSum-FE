@@ -14,7 +14,7 @@ const Main = styled.div`
 `;
 
 const App = () => {
-  const [menu, setMenu] = useState('MAIN');
+  const [menu, setMenu] = useState('HOME');
   const onSelect = useCallback((menu) => setMenu(menu), []);
 
   return (
