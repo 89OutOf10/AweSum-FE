@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch, HashRouter } from 'react-router-dom';
 import styled from 'styled-components';
 import ScrollToTop from './components/common/ScrollToTop';
 
@@ -22,8 +22,10 @@ const App = () => {
       <Header menu={menu} onSelect={onSelect} />
       <Main>
         <ScrollToTop />
-        <Route component={mainPage} path="/" exact={true} />
-        <Route component={aboutPage} path="/about" />
+        <HashRouter>
+          <Route component={mainPage} path="/" exact={true} />
+          <Route component={aboutPage} path="/about" />
+        </HashRouter>
       </Main>
       <Footer />
     </>
