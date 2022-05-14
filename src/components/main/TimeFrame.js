@@ -12,13 +12,13 @@ const Text = styled.div`
   color: ${palette.purple[0]};
   border: 2px solid ${palette.purple[0]};
   border-radius: 4px;
-  width: 6rem;
+  width: 160px;
 `;
 
 const TimeFrame = ({ ...props }) => {
   return (
     <>
-      <Text {...props}>TIME FRAME</Text>
+      <Text {...props}>KEY-WORD SEARCH</Text>
     </>
   );
 };

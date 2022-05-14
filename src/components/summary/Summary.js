@@ -43,11 +43,11 @@ const Summary = ({ videoID }) => {
   const _handleModal = () => {
     setOpenModal(!openModal);
   };
-  // 인자값 받아오기 (medium / long 뭐 선택했는지) - 연결시 (long: 2, medium: 1)
+
   const onGenerate = (e) => {
     _handleModal();
   };
-  // 비디오 ID 를
+
   return (
     <Wrapper>
       <Text style={{ marginBottom: '60px', fontWeight: 'bolder' }}>
@@ -77,8 +77,8 @@ const Summary = ({ videoID }) => {
       {openModal && (
         <SummaryModal
           _handleModal={_handleModal}
-          length={length}
           videoID={videoID}
+          length={length}
         />
       )}
     </Wrapper>

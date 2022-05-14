@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import palette from '../../styles/palette';
 import Input from './Input.js';
 import Button from '../../components/common/Button.js';
 import TimeFrame from './TimeFrame.js';
+import axios from 'axios';
+import { USER_SERVER } from '../../config.js';
 
 const Board = styled.div`
   border-radius: 16px;
@@ -20,11 +21,10 @@ const Board = styled.div`
 const Col = styled.div`
   display: flex;
   width: 100%;
-  height: 96%;
+  height: 90%;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  margin-top: 25px;
 `;
 
 const Row = styled.div`
@@ -46,6 +46,7 @@ const Grid = styled.div`
   justify-items: center;
   align-items: center;
   margin-bottom: 30px;
+  margin-top: 30px;
 `;
 
 const Time = styled.div`
@@ -66,6 +67,15 @@ const Sentence = styled.div`
   overflow: auto;
 `;
 
+function KeywordList({ keyword }) {
+  return (
+    <Grid>
+      <Time>{keyword.start}</Time>
+      <Sentence>{keyword.text}</Sentence>
+    </Grid>
+  );
+}
+
 //videoID 랑 keyword 인자로 받음
 const KeywordSearch = ({ videoID }) => {
   const [inputs, setInputs] = useState('');
@@ -75,58 +85,60 @@ const KeywordSearch = ({ videoID }) => {
   };
 
   // handle click
-  const [keyword, setKeyword] = useState('');
   const onClick = () => {
-    setKeyword(inputs);
+    request();
   };
 
+  // 서버 연결
+  const [keywords, setKeyword] = useState();
+  const [loading, setLoading] = useState(true);
+
+  const request = () => {
+    console.log('im requesting keyword search');
+    axios
+      .get(`${USER_SERVER}/videos/find?id=${videoID}&q=${inputs}`)
+      .then(function (response) {
+        setKeyword(response.data);
+        setLoading(false);
+        console.log('complete');
+        console.log(response.data.length);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+
+  if (loading)
+    return (
+      <>
+        <TimeFrame style={{ marginLeft: '10px', marginTop: '20px' }} />
+        <Col>
+          <Board />
+          <Row>
+            <Input
+              value={inputs}
+              onChange={onChange}
+              placeholder={' Enter Key-Word '}
+            />
+            <Button onClick={onClick}>ENTER</Button>
+          </Row>
+        </Col>
+      </>
+    );
   return (
     <>
+      <TimeFrame style={{ marginLeft: '10px', marginTop: '20px' }} />
       <Col>
         <Board>
-          <TimeFrame
-            style={{ marginTop: '5%', marginLeft: '5%', marginBottom: '4%' }}
-          />
-          <Grid>
-            <Time>12:30</Time>
-            <Sentence>
-              And all I am is a man I want the world in my hands I hate the
-              beach But I stand in California with my toes in the sand Use the
-              sleeves of my sweater Let's have an adventure Head in the clouds
-              but my gravity centered
-            </Sentence>
-            <Time>20:42</Time>
-            <Sentence>
-              And if I may just take your breath away I don't mind if there's
-              not much to say Sometimes the silence guides a mind To move to a
-              place so far away The goosebumps start to raise The minute that my
-              left hand meets your waist And then I watch your face Put my
-              finger on your tongue 'cause you love to taste, yeah These hearts
-              adore, everyone the other beats hardest for Inside this place is
-              warm Outside it starts to pour
-            </Sentence>
-            <Time>28:17</Time>
-            <Sentence>learning because now we only have access</Sentence>
-            <Time>33:06</Time>
-            <Sentence>
-              And all I am is a man I want the world in my hands I hate the
-              beach but I stand In California with my toes in the sand Use the
-              sleeves of my sweater Let's have an adventure Head in the clouds
-              but my gravity's centered Touch my neck and I'll touch yours
-            </Sentence>
-            <Time>51:29</Time>
-            <Sentence>
-              She knows what I think about And what I think about One love, two
-              mouths One love, one house No shirt, no blouse Just us, you find
-              out Nothing that I wouldn't wanna tell you about, no
-            </Sentence>
-          </Grid>
+          {keywords.map((keyword) => (
+            <KeywordList keyword={keyword} key={keyword.sub_num} />
+          ))}
         </Board>
         <Row>
           <Input
             value={inputs}
             onChange={onChange}
-            placeholder={' Keyword Search '}
+            placeholder={' Enter Key-Word '}
           />
           <Button onClick={onClick}>ENTER</Button>
         </Row>

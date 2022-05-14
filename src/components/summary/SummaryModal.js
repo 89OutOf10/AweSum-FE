@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import ModalFrame from '../common/ModalFrame';
 import palette from '../../styles/palette.js';
+import axios from 'axios';
+import { MutatingDots } from 'react-loader-spinner';
+import { USER_SERVER } from '../../config.js';
 
 const Textbox = styled.div`
   background: ${palette.pink[0]};
@@ -27,65 +30,56 @@ const Text = styled.div`
 `;
 
 //length, videoID 받아옴
-const SummaryModal = ({ length, videoID, _handleModal }) => {
-  const [summary, setSummary] = useState('hello');
+const SummaryModal = ({ _handleModal, videoID, length }) => {
+  useEffect(() => {
+    request();
+  }, []);
+
+  const [loading, setLoading] = useState(true);
+
+  // 비디오 ID 이용해서 response 받기
+  const [summary, setSummary] = useState('');
+  const request = () => {
+    console.log('requesting summary');
+    length === 2 &&
+      axios
+        .get(`${USER_SERVER}/summaries/long?id=${videoID}`)
+        .then(function (response) {
+          setSummary(response.data[0].body);
+          console.log('long summary generated');
+          setLoading(false);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+
+    length === 1 &&
+      axios
+        .get(`${USER_SERVER}/summaries/medium?id=${videoID}`)
+        .then(function (response) {
+          setSummary(response.data[0].body);
+          console.log('medium summary generated');
+          setLoading(false);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+  };
+  if (loading)
+    return (
+      <ModalFrame _handleModal={_handleModal}>
+        <h1>Summary</h1>
+        <Textbox>
+          <MutatingDots color="purple" />
+        </Textbox>
+      </ModalFrame>
+    );
 
   return (
     <ModalFrame _handleModal={_handleModal}>
       <h1>Summary</h1>
       <Textbox>
-        <Text>
-          The fundamental building block of deep learning is just a single,
-          neuron also known as a perceptron. We want to find the weights of the
-          neural network that will minimize the loss of our data set. If we
-          compute the gradient of our laws, with respect to our weights, that's
-          the derivative our gradient for loss with respect to the weights. Now,
-          let's take a look at what's called a single layered neural network. We
-          want to find the weights of the neural network that will minimize the
-          loss of our data set. We compute the gradient of our loss with respect
-          to each of the weights in our neural network. We want to learn a model
-          that accurately describes our test data, not the training data, even
-          though we're optimizing this model based on the training data. This is
-          a very simple neural network that only has one input, one hidden
-          neuron, and one output. The fundamental building block of deep
-          learning is just a single, neuron also known as a perceptron. We want
-          to find the weights of the neural network that will minimize the loss
-          of our data set. If we compute the gradient of our laws, with respect
-          to our weights, that's the derivative our gradient for loss with
-          respect to the weights. Now, let's take a look at what's called a
-          single layered neural network. We want to find the weights of the
-          neural network that will minimize the loss of our data set. We compute
-          the gradient of our loss with respect to each of the weights in our
-          neural network. We want to learn a model that accurately describes our
-          test data, not the training data, even though we're optimizing this
-          model based on the training data. This is a very simple neural network
-          that only has one input, one hidden neuron, and one output. The
-          fundamental building block of deep learning is just a single, neuron
-          also known as a perceptron. We want to find the weights of the neural
-          network that will minimize the loss of our data set. If we compute the
-          gradient of our laws, with respect to our weights, that's the
-          derivative our gradient for loss with respect to the weights. Now,
-          let's take a look at what's called a single layered neural network. We
-          want to find the weights of the neural network that will minimize the
-          loss of our data set. We compute the gradient of our loss with respect
-          to each of the weights in our neural network. We want to learn a model
-          that accurately describes our test data, not the training data, even
-          though we're optimizing this model based on the training data. This is
-          a very simple neural network that only has one input, one hidden
-          neuron, and one output. The fundamental building block of deep
-          learning is just a single, neuron also known as a perceptron. We want
-          to find the weights of the neural network that will minimize the loss
-          of our data set. If we compute the gradient of our laws, with respect
-          to our weights, that's the derivative our gradient for loss with
-          respect to the weights. Now, let's take a look at what's called a
-          single layered neural network. We want to find the weights of the
-          neural network that will minimize the loss of our data set. We compute
-          the gradient of our loss with respect to each of the weights in our
-          neural network. We want to learn a model that accurately describes our
-          test data, not the training data, even though we're optimizing this
-          model based on the training data. This is a very simple neural network
-          that only has one input, one hidden neuron, and one output.
-        </Text>
+        <Text>{summary}</Text>
       </Textbox>
     </ModalFrame>
   );
