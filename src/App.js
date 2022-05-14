@@ -30,7 +30,7 @@ const App = () => {
       <Header menu={menu} onSelect={onSelect} />
       <Main>
         <ScrollToTop />
-        <Route component={mainPage} path="/" exact="true" />
+        <Route component={mainPage} path="/" exact={true} />
         <Route component={aboutPage} path="/about" />
       </Main>
       <Footer />
