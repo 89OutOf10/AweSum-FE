@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { Route } from 'react-router-dom';
 import styled from 'styled-components';
 import ScrollToTop from './components/common/ScrollToTop';
@@ -14,6 +14,10 @@ const Main = styled.div`
 `;
 
 const App = () => {
+  useEffect(() => {
+    setMenu(menu);
+  }, []);
+
   const [menu, setMenu] = useState('HOME');
   const onSelect = useCallback((menu) => setMenu(menu), []);
 
