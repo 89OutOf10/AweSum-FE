@@ -87,10 +87,11 @@ const Board = styled.div`
 
 const MainPage = () => {
   useEffect(() => {
-    console.log('hi');
+    console.log('MainPage');
   }, []);
+
   // URL + Video_ID
-  const [videoID, setVideoId] = useState(13);
+  const [videoID, setVideoId] = useState(18);
   const [inputs, setInputs] = useState('');
   const onChange = (e) => {
     const value = e.target.value;

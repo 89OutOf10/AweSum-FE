@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import ModalFrame from '../common/ModalFrame';
 import palette from '../../styles/palette.js';
 import axios from 'axios';
+import { medium_summary, long_summary } from '../../assets/summary/summary.js';
 import { MutatingDots } from 'react-loader-spinner';
 import { USER_SERVER } from '../../config.js';
 
@@ -36,6 +37,18 @@ const SummaryModal = ({ _handleModal, videoID, length }) => {
   }, []);
 
   const [loading, setLoading] = useState(true);
+
+  // /* erase after */
+  // setTimeout(() => {
+  //   _request();
+  //   console.log('hello');
+  // }, 5000);
+
+  // const _request = () => {
+  //   length === 2 && setSummary(long_summary);
+  //   length === 1 && setSummary(medium_summary);
+  //   setLoading(false);
+  // };
 
   // 비디오 ID 이용해서 response 받기
   const [summary, setSummary] = useState('');
