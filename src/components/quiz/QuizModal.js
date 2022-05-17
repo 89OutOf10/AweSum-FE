@@ -8,7 +8,7 @@ import Button from '../common/Button';
 import axios from 'axios';
 import { USER_SERVER } from '../../config.js';
 import { MutatingDots } from 'react-loader-spinner';
-import { quizForm } from '../../assets/quiz/quizForm.js';
+import { quizForm, questionForm } from '../../assets/quiz/quizForm.js';
 
 const Col = styled.div`
   display: flex;
@@ -153,9 +153,16 @@ const QuizModal = ({ videoID, _handleModal }) => {
         <Col>
           <Header>OX Quiz</Header>
         </Col>
-        <div style={{ marginTop: '30%' }}>
+        <Col
+          justifyContent="center"
+          style={{
+            height: '600px',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
           <MutatingDots color="purple" />
-        </div>
+        </Col>
       </QuizModalFrame>
     );
   return (
