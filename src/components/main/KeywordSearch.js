@@ -70,7 +70,7 @@ const Sentence = styled.div`
 function KeywordList({ keyword }) {
   return (
     <Grid>
-      <Time>{keyword.start}</Time>
+      <Time>{keyword.time}</Time>
       <Sentence>{keyword.text}</Sentence>
     </Grid>
   );
